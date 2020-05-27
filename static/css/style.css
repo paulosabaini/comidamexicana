@@ -1,0 +1,357 @@
+nav {
+    background-color: #ff6666; 
+}
+
+nav .btn {
+    background-color: #22b573;
+}
+
+/* Busca */
+.conteudoBusca {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.conteudoBusca .titulo {
+    color:#333;
+    font-size:60px;
+    font-weight:600;
+    margin-bottom:50px;
+}
+
+.conteudoBusca .titulo b{
+    color:#ff6666;
+}
+
+.texto {
+    color:#4a4a4a;
+    font-size:16px;
+    font-weight:300;
+    margin-bottom:20px;
+    opacity:.8;
+}
+
+.formBusca {
+    width: 100%;
+}
+
+.formBusca input {
+    height: 50px;
+}
+
+.formBusca .btn {
+    border-color: #22b573;    
+}
+
+.filter_button {
+    margin-bottom: 15px;
+}
+
+.form_filters {
+    margin-bottom: 25px;
+}
+
+.form_filter_name {
+    margin-bottom: 25px;
+}
+
+/* Caracteristicas */
+
+.caracteristicas {
+    background-color: #22b573;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.caracteristicas .titulo {
+    font-size: 22px;
+    color: white;
+    font-weight: bold;
+}
+
+.caracteristicas .sub {
+    color: white;
+    margin-top: -8px;
+}
+
+.caracteristicas img {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/* Destaque */
+
+.destaque {
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.destaque h3 {
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+
+.destaque .btn {
+    background-color: #22b573;
+}
+
+/* Newsletter */
+
+.newsletter {
+    margin-top: 25px;
+    margin-bottom: 25px;    
+}
+
+.newsletter .coluna {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.newsletter input {
+    width: 100%;
+}
+
+.newsletter .btn {
+    background-color: #22b573;
+}
+
+/* Cidades */
+
+.cidades .row {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+/* footer */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;   
+    bottom: 0;   
+    width: 100%;   
+    height: 60px;
+    background-color: #f5f5f5;
+    padding: 15px;
+}
+
+.footer a {
+    margin-right: 25px;
+}
+
+/* Contact page */
+
+.tituloContato {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.enviarContato {
+    width: 100px;
+    height: 50px;
+}
+
+#formContato{
+    margin-bottom: 15px;
+}
+
+/* Plans page */
+  
+.pricing-header {
+    max-width: 700px;
+}
+  
+.card-deck .card {
+    min-width: 220px;
+}
+
+/* Submit page */
+
+.tituloEnvio {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.enviarEmpresa {
+    width: 100px;
+    height: 50px;
+}
+
+#formEnvio{
+    margin-bottom: 15px;
+}
+
+.formEnvio table td{
+    padding:0 15px 15px 15px
+}
+
+/* About page */
+
+.imgSobre {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.sobre {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.sobre p {
+    text-align: justify;
+}
+
+.autocompleteSuggestion {
+    display: block;
+    border-bottom: 1px solid #d8d8d8;
+    cursor: pointer;
+    padding: 10px 40px;
+    position: relative;
+    text-align: left;
+    background: #fff;
+}
+
+.autocompleteSuggestion p{
+    margin: 0;
+    padding: 0;
+}
+
+.autocompleteSelected {
+    background: #f3f3f3;
+}
+
+.formBusca .mb-3 {
+    margin-bottom: 0px !important;
+}
+
+.listResults {
+    position: absolute;
+    z-index: 1000;
+    width: 96%;
+    max-height: 300px;
+}
+
+.locationIcon{
+    width: 24px;
+    height: 24px;
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 12px;
+}
+
+/* Search */
+.card-body .row{
+    margin-top: 10px;
+}
+
+.title {
+    margin-top: 25px;
+}
+
+/* Restaurant page */
+
+.restaurant-content {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.restaurant-content .restaurant-name {
+    margin-bottom: 25px;
+}
+
+.restaurant-content .contact {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.restaurant-content .wapp {
+    margin-left: 10px;
+}
+
+.restaurant-content .opening-time {
+    margin-top: 25px;
+}
+
+.restaurant-content .price {
+    margin-top: 25px;
+}
+
+.restaurant-content .options {
+    margin-top: 25px;
+}
+
+.restaurant-content .rating {
+    margin-top: 25px;
+}
+
+.restaurant-content .description-text {
+    padding: 10px;
+    text-align: justify;
+}
+
+.restaurant-content .social {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.restaurant-content .rating-showcase {
+    margin-top: 25px;
+}
+
+.restaurant-content .showcase {
+    background-color: #22b573;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.direction {
+    margin-top: 15px;
+}
+
+/* Mobile */
+
+@media only screen and (max-width: 768px) {
+    /* Index */
+    .conteudoBusca .titulo {
+        font-size: 50px;
+    }
+
+    .destaques .rest-dest {
+        margin-top: 15px;
+    }
+
+    .cidades .col-md-3{
+        margin: 10px;    
+    }
+
+    /* submit */
+    .formEnvio table td{
+        padding:0 5px 5px 5px;
+        font-size: 11px;
+    }
+
+    .formEnvio table td select{
+        font-size: 10px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* search and restaurant pages */
+
+    .options .col-md-4{
+        margin-bottom: 1rem;
+    }
+
+
+  }

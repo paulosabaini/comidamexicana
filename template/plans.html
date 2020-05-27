@@ -1,0 +1,82 @@
+{{ define "plans" }}
+    {{ template "header" }}
+    <div class="container">
+        <div class="row">
+            <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+                <h1 class="display-4">Planos</h1>
+                <p class="lead">Escolha o plano que melhor atenda as suas necessidades e em seguida preencha o cadastro para envio.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 shadow-sm">
+                  <div class="card-header">
+                    <img src="/static/img/gratis.png" width="80" height="80">
+                    <h4 class="my-0 font-weight-normal">Grátis</h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title">$0</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>Página da empresa com 3 fotos</li>
+                      <li>Listagem básica na pesquisa</li>
+                      <li><strike>Avaliação em destaque</strike></li>
+                      <li><strike>Vídeo na página da empresa</strike></li>
+                      <li><strike>Link para o iFood</strike></li>
+                      <li><strike>Links para as redes sociais</strike></li>
+                      <li><strike>Aparição na lista de restaurantes em destaque</strike></li>
+                    </ul>
+                    <form action="/envio-negocio/gratis">
+                      <input type="submit" class="btn btn-lg btn-block btn-primary" value="Escolha o plano grátis" />
+                    </form>
+                  </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                  <div class="card-header">
+                    <img src="/static/img/intermediario.png" width="80" height="80">
+                    <h4 class="my-0 font-weight-normal">Intermediário</h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title">R$360 <small class="text-muted">/ ano</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>Página da empresa com 6 fotos</li>
+                      <li>Listagem na pesquisa com foto, acima do plano grátis</li>
+                      <li>Avaliação em destaque</li>
+                      <li>Vídeo na página da empresa</li>
+                      <li><strike>Link para o iFood</strike></li>
+                      <li><strike>Links para as redes sociais</strike></li>
+                      <li><strike>Aparição na lista de restaurantes em destaque</strike></li>
+                    </ul>
+                    <form action="/envio-negocio/intermediario">
+                      <input type="submit" class="btn btn-lg btn-block btn-primary" value="Escolha o plano intermediário" />
+                    </form>
+                  </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                  <div class="card-header">
+                    <img src="/static/img/completo.png" width="80" height="80">
+                    <h4 class="my-0 font-weight-normal">Completo</h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title">R$720 <small class="text-muted">/ ano</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>Página da empresa com 12 fotos</li>
+                      <li>Listagem na pesquisa com foto, acima do plano intermediário</li>
+                      <li>Avaliação em destaque</li>
+                      <li>Vídeo na página da empresa</li>
+                      <li>Links para as redes sociais</li>
+                      <li>Link para o iFood</li>
+                      <li>Aparição na lista de restaurantes em destaque</li>
+                    </ul>
+                    <form action="/envio-negocio/completo">
+                      <input type="submit" class="btn btn-lg btn-block btn-primary" value="Escolha o plano completo" />
+                    </form>
+                  </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/plans.js"></script>
+    {{ template "footer" }}
+{{ end }}

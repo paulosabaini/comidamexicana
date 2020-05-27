@@ -1,0 +1,58 @@
+{{ define "blogpost" }}
+    {{ template "header" }}
+    <div class="container">
+        <div class="row">
+            <!-- Blog Entries Column -->
+            <div class="col-lg-8" id="post">
+                {{range .}}
+                <!-- Title -->
+                <h1 class="mt-4" id="title">{{ .Title }}</h1>
+
+                <!-- Author -->
+                <p class="lead">por <strong>{{ .Author }}</strong></p>
+
+                <hr>
+
+                <!-- Date/Time -->
+                <p>Publicado em {{ .CreatedDateTime }}</p>
+
+                <hr>
+
+                <!-- Preview Image -->
+                <img class="img-fluid rounded" src="{{.CoverImage}}" alt="imagem de capa do post">
+
+                <hr>
+                
+                {{ .FormattedContent }}
+                
+                <hr>
+                {{end}}
+                <div id="ad">
+                    
+                </div>
+            </div>
+            {{ template "blogwidget" }}
+            <div id="comments" class="col-lg-8">
+                <div id="disqus_thread"></div>
+                <script>
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                var disqus_config = function () {
+                    this.page.url = 'https://comidamexicana.com.br/blog/{{ (index . 0).TitleSlug }}';  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = 'https://comidamexicana.com.br/blog/{{ (index . 0).TitleSlug }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://comida-mexicana.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>                                          
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/post.js"></script>
+    {{ template "footer" }}
+{{ end }}

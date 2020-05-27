@@ -1,0 +1,100 @@
+{{ define "index" }}
+    {{ template "header" }}
+    <section id="busca" class="busca">
+        <div class="container">
+            <div class="row linha">
+                <div class="conteudoBusca col-md-8 offset-md-2">
+                    <h2 class="titulo">Encontre a melhor <b>comida mexicana</b> em sua cidade</h2>
+                    <form class="justify-content-center formBusca" id="search-form" autocomplete="off">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Digite o nome da cidade" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-success" type="submit" id="btn-submit">Buscar</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="suggestions" style="display: block;">
+                        <div id="list_results" class="listResults">
+
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="caracteristicas" class="caracteristicas">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <img src="/static/img/search.png" width="50" height="50">
+                    <p class="titulo">Procure restaurantes</p>
+                    <p class="sub">Busque restaurantes de comida mexicana</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="/static/img/chat.png" width="50" height="50">
+                    <p class="titulo">Entre em contato</p>
+                    <p class="sub">Consulte várias informações sobre o estabelecimento</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="/static/img/like.png" width="50" height="50">
+                    <p class="titulo">Tenha uma ótima experiência</p>
+                    <p class="sub">Aproveite o melhor da culinária mexicana no Brasil</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="destaque" class="destaque">
+        <div class="container">
+            <div class="row">
+                <div class="container">
+                    <h3>Restaurantes em destaque</h3>
+                </div>
+            </div>
+            <div class="row destaques" id="destaques"></div>
+        </div>
+    </section>
+
+    <section id="newsletter" class="newsletter">
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2 coluna">
+                    <p>Faça parte de nossa newsletter, receba novidades e promoções</p>
+                    <form class="" id="form-newsletter">
+                        <div class="input-group">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email" required>
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-success">Inscreva-se</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cidades" class="cidades">
+        <hr>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <a href="/restaurantes/sao-paulo/sao-paulo">São Paulo</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="/restaurantes/distrito-federal/brasilia">Brasília</a>       
+                </div>
+                <div class="col-md-3">
+                    <a href="restaurantes/santa-catarina/florianopolis">Florianópolis</a>    
+                </div>
+                <div class="col-md-3">
+                    <a href="restaurantes/parana/curitiba">Curitiba</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/static/js/index.js"></script>
+    {{ template "footer" }}
+{{ end }}

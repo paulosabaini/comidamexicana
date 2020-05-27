@@ -1,0 +1,30 @@
+{
+    "db": {
+        "dialect": "postgres",
+        "host": "127.0.0.1",
+        "port": 5432,
+        "username": "",
+        "password": "",
+        "name": "comidamexicana",
+        "charset": "utf8"
+    },
+    "image": {
+        "url": "",
+        "awss3region": "",
+        "awss3bucket": "",
+        "awsid": "",
+        "awssecretkey": ""
+    },
+    "email": {
+        "server": "",
+        "port": "",
+        "username": "",
+        "password": "",
+        "sender": "",
+        "to": ""
+    },
+    "assets": {
+        "static": "static/",
+        "template": "template/"
+    }
+}

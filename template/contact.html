@@ -1,0 +1,53 @@
+{{ define "contact" }}
+    {{ template "header" }}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="tituloContato">Entre em contato conosco</h1>
+                    <form id="formContato" action="/contact/create" method="POST">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="nome">Nome*</label>
+                                    <input type="text" class="form-control" id="nome" name="nome" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="email">Email*</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label for="telefone">Telefone</label>
+                                    <input type="text" class="form-control" id="telefone" name="telefone">
+                                </div>                    
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label for="website">Website</label>
+                                    <input type="text" class="form-control" id="website" name="website">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="mensagem">Mensagem*</label>
+                                    <textarea class="form-control" id="mensagem" name="mensagem" rows="3" required></textarea>
+                                </div>    
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary enviarContato ml-auto">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="/static/js/contact.js"></script>
+    {{ template "footer" }}
+{{ end }}

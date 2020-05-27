@@ -1,0 +1,443 @@
+{{ define "submit" }}
+    {{ template "header" }}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="tituloEnvio">Envio para listagem</h1>
+                <form id="formEnvio" class="formEnvio" name="formEnvio" method="POST" enctype="multipart/form-data" action="/restaurantes/create" onsubmit="return validateForm()" >
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="nome">Nome Responsável</label>
+                                <input type="text" class="form-control" id="nome" name="nome" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="nomeEmpresa">Nome da empresa</label>
+                                <input type="text" class="form-control" id="nomeEmpresa" name="nomeEmpresa" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="descricao">Descrição</label>
+                                <textarea class="form-control" id="descricao" name="descricao" rows="3" required></textarea>
+                            </div>    
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="website">Website</label>
+                                <input type="text" class="form-control" id="website" name="website">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                <label for="telefoneFixo">Telefone Fixo</label>
+                                <input type="text" class="form-control" id="telefoneFixo" name="telefoneFixo" maxlength="14">
+                            </div>                    
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                <label for="telefoneCel">Telefone Celular</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="telefoneCel" name="telefoneCel" maxlength="15">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                          <input type="checkbox" id="whatsapp" name="whatsapp">
+                                            Whatsapp
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                    
+                        </div>
+                    </div>
+                    <hr>
+                    <strong><p>Endereço</p></strong>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="cep">CEP</label>
+                                <input type="text" class="form-control" id="cep" name="cep" onblur="pesquisacep(this.value);" required maxlength="9">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="uf">Estado</label>
+                                <input type="text" class="form-control" id="uf" name="uf" readonly>
+                            </div>                    
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="cidade">Cidade</label>
+                                <input type="text" class="form-control" id="cidade" name="cidade" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="bairro">Bairro</label>
+                                <input type="text" class="form-control" id="bairro" name="bairro" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                <label for="rua">Rua/Avenida</label>
+                                <input type="text" class="form-control" id="rua" name="rua" required>
+                            </div>                    
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                <label for="numero">Número</label>
+                                <input type="text" class="form-control" id="numero" name="numero" required>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <strong><p>Horário de funcionamento</p></strong>
+                    <div class="row">
+                        <div class="col">
+                            <table>
+                                <tr>
+                                    <td><input type="checkbox" name="seg" id="seg"></td>
+                                    <td>Segunda</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="aseg" name="aseg"></select>
+                                    </td>
+                                    <td>-</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="fseg" name="fseg"></select>
+                                    </td>
+                                    <td>e</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="aseg2" name="aseg2"></select>
+                                    </td>
+                                    <td>-</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="fseg2" name="fseg2"></select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="ter" id="ter"></td>
+                                    <td>Terça</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="ater" name="ater"></select>
+                                    </td>
+                                    <td>-</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="fter" name="fter"></select>
+                                    </td>
+                                    <td>e</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="ater2" name="ater2"></select>
+                                    </td>
+                                    <td>-</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="fter2" name="fter2"></select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="qua" id="qua"></td>
+                                    <td>Quarta</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="aqua" name="aqua"></select>
+                                    </td>
+                                    <td>-</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="fqua" name="fqua"></select>
+                                    </td>
+                                    <td>e</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="aqua2" name="aqua2"></select>
+                                    </td>
+                                    <td>-</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="fqua2" name="fqua2"></select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="qui" id="qui"></td>
+                                    <td>Quinta</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="aqui" name="aqui"></select>
+                                    </td>
+                                    <td>-</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="fqui" name="fqui"></select>
+                                    </td>
+                                    <td>e</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="aqui2" name="aqui2"></select>
+                                    </td>
+                                    <td>-</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="fqui2" name="fqui2"></select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="sex" id="sex"></td>
+                                    <td>Sexta</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="asex" name="asex"></select>
+                                    </td>
+                                    <td>-</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="fsex" name="fsex"></select>
+                                    </td>
+                                    <td>e</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="asex2" name="asex2"></select>
+                                    </td>
+                                    <td>-</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="fsex2" name="fsex2"></select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="sab" id="sab"></td>
+                                    <td>Sábado</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="asab" name="asab"></select>
+                                    </td>
+                                    <td>-</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="fsab" name="fsab"></select>
+                                    </td>
+                                    <td>e</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="asab2" name="asab2"></select>
+                                    </td>
+                                    <td>-</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="fsab2" name="fsab2"></select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="dom" id="dom"></td>
+                                    <td>Domingo</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="adom" name="adom"></select>
+                                    </td>
+                                    <td>-</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="fdom" name="fdom"></select>
+                                    </td>
+                                    <td>e</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="adom2" name="adom2"></select>
+                                    </td>
+                                    <td>-</td>
+                                    <td>
+                                        <select class="form-control timeDropdownlist" id="fdom2" name="fdom2"></select>
+                                    </td>
+                                </tr>
+                            </table>    
+                        </div>
+                    </div>
+                    <hr>
+                    <strong><p>Opções</p></strong>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="1" id="chbReserva" name="reserva">
+                                <label class="form-check-label" for="chbReserva">
+                                    Reservas
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="1" id="chbEstacionamento" name="estacionamento">
+                                <label class="form-check-label" for="chbEstacionamento">
+                                    Estacionamento
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="1" id="chbEmbalagem" name="embalagem">
+                                <label class="form-check-label" for="chbEmbalagem">
+                                    Embalagem para levar
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="1" id="chbEntrega" name="entrega">
+                                <label class="form-check-label" for="chbEntrega">
+                                    Entregas
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="1" id="chbWifi" name="wifi">
+                                <label class="form-check-label" for="chbWifi">
+                                    Wifi
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="1" id="chbCadeirantes" name="cadeirantes">
+                                <label class="form-check-label" for="chbCadeirantes">
+                                    Acesso para cadeirantes
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="1" id="chbCredito" name="cartaocredito">
+                                <label class="form-check-label" for="chbCredito">
+                                    Cartão de crédito
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="1" id="chbExterior" name="exterior">
+                                <label class="form-check-label" for="chbExterior">
+                                    Ambiente exterior
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="1" id="chbBebidas" name="bebidas">
+                                <label class="form-check-label" for="chbBebidas">
+                                    Bebidas alcoolicas
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <strong><p>Preço médio por refeição</p></strong>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="10" id="chbRef10" name="precoMedio" required>
+                                <label class="form-check-label" for="chbRef10">
+                                    R$ 10
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="25" id="chbRef25" name="precoMedio" required>
+                                <label class="form-check-label" for="chbRef25">
+                                    R$ 25
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="40" id="chbRef40" name="precoMedio" required>
+                                <label class="form-check-label" for="chbRef40">
+                                    R$ 40
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="55" id="chbRef55" name="precoMedio" required>
+                                <label class="form-check-label" for="chbRef55">
+                                    R$ 55
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="56" id="chbRef55mais" name="precoMedio" required>
+                                <label class="form-check-label" for="chbRef55mais">
+                                    R$ 55+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <strong><p>Fotos</p></strong>
+                    <p>*Uma das imagens enviadas deve ser a logo do seu estabelecimento.</p>                    
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <input type="file" name="fotos" id="fotos" multiple required>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="twitter">Link iFood</label>
+                                <input type="text" class="form-control" name="ifoodLink" id="ifood">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="youtube">Link vídeo Youtube</label>
+                                <input type="text" class="form-control" name="youtubeLink" id="youtube">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="instagram">Link Instagram</label>
+                                <input type="text" class="form-control" name="instagramLink" id="instagram">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="facebook">Link Facebook</label>
+                                <input type="text" class="form-control" name="facebookLink" id="facebook">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="twitter">Link Twitter</label>
+                                <input type="text" class="form-control" name="twitterLink" id="twitter">
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <strong><p>Planos</p></strong>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="0" id="chbPlanGratis" name="plano">
+                                    <label class="form-check-label" for="chbPlanGratis">
+                                        Grátis
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="1" id="chbPlanInterm" name="plano">
+                                    <label class="form-check-label" for="chbPlanInterm">
+                                        Intermediário
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="2" id="chbPlanComp" name="plano">
+                                    <label class="form-check-label" for="chbPlanComp">
+                                        Completo
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="submit" class="btn btn-primary enviarEmpresa ml-auto">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/submit.js"></script>
+    {{ template "footer" }}
+{{ end }}

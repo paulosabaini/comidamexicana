@@ -1,0 +1,19 @@
+{{ define "restaurant" }}
+    {{ template "header" }}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div>
+                    <h1 id="title"></h1>
+                </div>
+                <div id="restaurant-content" class="restaurant-content">
+
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJaMIikE0KMs1cyWEnMPGIU-glkky1Nkc&callback=initMap"></script>
+    <script src="/static/js/restaurant.js"></script>
+    {{ template "footer" }}
+{{ end }}

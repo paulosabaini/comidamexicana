@@ -1,0 +1,201 @@
+{{ define "search" }}
+{{ template "header" }}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="filters">
+                <div>
+                    <h1 id="title" class="title"></h1>
+                </div>
+                <div>
+                    <p id="total_results"></p>
+                </div>
+                <div class="filter_button">
+                    <button type="button" class="btn btn-primary btn-lg" id="btn_filters">Filtros</button>
+                    <button type="button" class="btn btn-primary btn-lg" id="btn_filter_name">Buscar pelo nome</button>
+                </div>
+                <form class="form_filters" id="form_filters" style="display: none;">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <strong><p>Horário de funcionamento</p></strong>
+                                <div>
+                                    <label for="openingTime">Abertura</label>
+                                    <select class="form-control" id="openingTime" name="openingTime">
+                                        <option value="0:00">0:00</option><option value="0:30">0:30</option><option value="1:00">1:00</option><option value="1:30">1:30</option><option value="2:00">2:00</option><option value="2:30">2:30</option><option value="3:00">3:00</option><option value="3:30">3:30</option><option value="4:00">4:00</option><option value="4:30">4:30</option><option value="5:00">5:00</option><option value="5:30">5:30</option><option value="6:00">6:00</option><option value="6:30">6:30</option><option value="7:00">7:00</option><option value="7:30">7:30</option><option value="8:00">8:00</option><option value="8:30">8:30</option><option value="9:00">9:00</option><option value="9:30">9:30</option><option value="10:00">10:00</option><option value="10:30">10:30</option><option value="11:00">11:00</option><option value="11:30">11:30</option><option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option><option value="24:00">24:00</option>
+                                    </select>
+                                    <label for="closingTime-max">Fechamento:</label>
+                                    <select class="form-control" id="closingTime" name="closingTime">
+                                        <option value="0:00">0:00</option><option value="0:30">0:30</option><option value="1:00">1:00</option><option value="1:30">1:30</option><option value="2:00">2:00</option><option value="2:30">2:30</option><option value="3:00">3:00</option><option value="3:30">3:30</option><option value="4:00">4:00</option><option value="4:30">4:30</option><option value="5:00">5:00</option><option value="5:30">5:30</option><option value="6:00">6:00</option><option value="6:30">6:30</option><option value="7:00">7:00</option><option value="7:30">7:30</option><option value="8:00">8:00</option><option value="8:30">8:30</option><option value="9:00">9:00</option><option value="9:30">9:30</option><option value="10:00">10:00</option><option value="10:30">10:30</option><option value="11:00">11:00</option><option value="11:30">11:30</option><option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option><option value="24:00">24:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="chbSeg" name="seg">
+                                    <label class="form-check-label" for="chbSeg">
+                                        Segunda
+                                    </label>
+                                </div> <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="chbTer" name="ter">
+                                    <label class="form-check-label" for="chbTer">
+                                        Terça
+                                    </label>
+                                </div> <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="chbQua" name="qua">
+                                    <label class="form-check-label" for="chbQua">
+                                        Quarta
+                                    </label>
+                                </div> <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="chbQui" name="qui">
+                                    <label class="form-check-label" for="chbQui">
+                                        Quinta
+                                    </label>
+                                </div> <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="chbSex" name="sex">
+                                    <label class="form-check-label" for="chbSex">
+                                        Sexta
+                                    </label>
+                                </div> <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="chbSab" name="sab">
+                                    <label class="form-check-label" for="chbSab">
+                                        Sábado
+                                    </label>
+                                </div> <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="chbDom" name="dom">
+                                    <label class="form-check-label" for="chbDom">
+                                        Domingo
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <strong><p>Opções</p></strong>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="chbReserva" name="reservations">
+                                    <label class="form-check-label" for="chbReserva">
+                                        Reservas
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="chbEstacionamento" name="parking">
+                                    <label class="form-check-label" for="chbEstacionamento">
+                                        Estacionamento
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="chbEmbalagem" name="takeout">
+                                    <label class="form-check-label" for="chbEmbalagem">
+                                        Embalagem para levar
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="chbEntrega" name="delivery">
+                                    <label class="form-check-label" for="chbEntrega">
+                                        Entregas
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="chbWifi" name="wifi">
+                                    <label class="form-check-label" for="chbWifi">
+                                        Wifi
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="chbCadeirantes" name="wheelchair">
+                                    <label class="form-check-label" for="chbCadeirantes">
+                                        Acesso para cadeirantes
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="chbCredito" name="credit_card">
+                                    <label class="form-check-label" for="chbCredito">
+                                        Cartão de crédito
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="chbExterior" name="outdoor">
+                                    <label class="form-check-label" for="chbExterior">
+                                        Ambiente exterior
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="chbBebidas" name="alcohol">
+                                    <label class="form-check-label" for="chbBebidas">
+                                        Bebidas alcoolicas
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-4">
+                            <div class="form-group">
+                                <strong><p>Preço médio por refeição</p></strong>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="10" id="chbRef10" name="precoMedio">
+                                    <label class="form-check-label" for="chbRef10">
+                                        R$ 10
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="25" id="chbRef25" name="precoMedio">
+                                    <label class="form-check-label" for="chbRef25">
+                                        R$ 25
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="40" id="chbRef40" name="precoMedio">
+                                    <label class="form-check-label" for="chbRef40">
+                                        R$ 40
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="55" id="chbRef55" name="precoMedio">
+                                    <label class="form-check-label" for="chbRef55">
+                                        R$ 55
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="56" id="chbRef55mais" name="precoMedio">
+                                    <label class="form-check-label" for="chbRef55mais">
+                                        R$ 55+
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="" id="chbReftodos" name="precoMedio" checked>
+                                    <label class="form-check-label" for="chbRef55mais">
+                                        Todos
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    <button id="submit-filter" type="submit" class="btn btn-outline-primary">Filtrar</button>
+                </form>
+                <form class="form_filter_name form-inline" id="form_filter_name" style="display: none;">
+                    <div class="row">
+                        <div class="col-8">
+                            <input type="text" class="form-control" id="nome_busca" name="nome">
+                        </div>
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div id="restaurants_list"></div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/search.js"></script>
+{{ template "footer" }}
+{{ end }}

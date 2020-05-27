@@ -1,0 +1,26 @@
+{{ define "blog" }}
+    {{ template "header" }}
+    <div class="container">
+        <div class="row">
+            <!-- Blog Entries Column -->
+            <div class="col-md-8" id="posts" style="margin-top: 1.5rem;">
+                {{range .}}
+                <div class="card mb-4">
+                    <img class="card-img-top" src="{{.CoverImage}}" alt="Card image cap">
+                    <div class="card-body">
+                    <h2 class="card-title">{{ .Title }}</h2>
+                    <p class="card-text">{{ .Abstract }}</p>
+                    <a href="/blog/{{.TitleSlug}}" class="btn btn-primary">Leia mais &rarr;</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                    Publicado em {{ .CreatedDate }} por <strong>{{ .Author }}</strong>
+                    </div>
+                </div>
+                {{end}}
+            </div>
+            {{ template "blogwidget" }}
+        </div>
+    </div>
+    <script src="/static/js/blog.js"></script>
+    {{ template "footer" }}
+{{ end }}
